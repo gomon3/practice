@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Faq;
+use App\Section;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -15,7 +16,8 @@ class FaqController extends Controller
     public function index()
     {
         //
-        return view('administration.faq.index');
+        $faqs = Faq::all();
+        return view('administration.faq.index', compact('faqs'));
     }
 
     /**
@@ -26,6 +28,8 @@ class FaqController extends Controller
     public function create()
     {
         //
+        $sections = Section::all();
+        return view('administration.faq.create', compact('sections'));
     }
 
     /**
@@ -37,6 +41,9 @@ class FaqController extends Controller
     public function store(Request $request)
     {
         //
+        Faq::create($request->all());
+        return redirect()->route('faqs.index');
+        
     }
 
     /**
@@ -59,6 +66,8 @@ class FaqController extends Controller
     public function edit(Faq $faq)
     {
         //
+        $sections = Section::all();
+        return view('administration.faq.edit', compact('faq'), compact('sections'));
     }
 
     /**
@@ -71,6 +80,11 @@ class FaqController extends Controller
     public function update(Request $request, Faq $faq)
     {
         //
+        $faq = Faq::findOrFail($faq->id);
+        $faq->update($request->all());
+
+        //Redireccionamos
+        return redirect()->route('faqs.index');
     }
 
     /**
@@ -82,5 +96,8 @@ class FaqController extends Controller
     public function destroy(Faq $faq)
     {
         //
+        Faq::findOrFail($faq->id)->delete();
+
+        return redirect()->route('faqs.index');
     }
 }

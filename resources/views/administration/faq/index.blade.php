@@ -23,42 +23,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                        </tr>
-                        <tr>
-                            <td scope="row">asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                        </tr>
+                        @foreach ($faqs as $faq)
+                            <tr>
+                                <td>{{ $faq->id }}</td>
+                                <td>{{ $faq->faq }}</td>
+                                <td>{{ $faq->section->nombre }}</td>
+                                <td>
+                                    <a class="btn btn-primary" href="{{ route('faqs.edit', $faq->id) }}" role="button">Editar</a>
+                                    <form style="display:inline;" method="POST" action="{{ route('faqs.destroy', $faq) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
-                <br>
-                <br>
-
-
-                <p>
-                    Aquí puedes visualizar las preguntas frecuentes que tienes dadas de alta.
-                </p>
-                <p>
-                    Puedes dar de alta muchas preguntas frecuentes y asociarlo a una sección
-                </p>
-
-
-                <form action="" method="post">
-                    <div class="form-group">
-                      <label for="data">Código</label>
-                      <input type="text" class="form-control" name="data" id="data" aria-describedby="helpId" placeholder="Código">
-                      <small id="helpId" class="form-text text-muted">Agrega </small>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
+                <a class="btn btn-primary" href="{{route('faqs.create')}}" role="button">Agregar Nuevo FAQ</a>
             </div>
             
         </div>
