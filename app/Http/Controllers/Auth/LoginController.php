@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/icons';
+    protected $redirectTo = 'admin/icons';
 
     /**
      * Create a new controller instance.

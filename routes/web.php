@@ -21,17 +21,17 @@ Route::get('/test', function(){
     $user->save();
 });
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
-Route::resource('sections', 'SectionController');
-Route::resource('icons', 'IconController');
-Route::resource('faqs', 'FaqController');
-Route::resource('solutions', 'SolutionController');
+Route::resource('admin/sections', 'SectionController')->except('show');
+Route::resource('admin/icons', 'IconController')->except('show');
+Route::resource('admin/faqs', 'FaqController')->except('show');
+Route::resource('admin/solutions', 'SolutionController')->except('show');
 
 
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login.show');
-Route::post('login', 'Auth\LoginController@Login')->name('login.login');
-Route::get('logout', 'Auth\LoginController@logout')->name('login.logout');
+Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('login.show');
+Route::post('admin/login', 'Auth\LoginController@Login')->name('login.login');
+Route::get('admin/logout', 'Auth\LoginController@logout')->name('login.logout');
