@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-1-12">
-                <h1>Secciones</h1>
+                <h1>Preguntas Frecuentes (FAQs)</h1>
                 
                 <table class="table">
                     <thead>
