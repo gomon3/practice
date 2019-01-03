@@ -10,6 +10,11 @@
             <li class="nav-item {{ setActive('faqs') }}">
                 <a class="nav-link" href="{{route('faqs')}}">FAQs</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('icons.index')}}">CRUDS</a>
+            </li>
+
         </ul>
     </div>
 </nav>

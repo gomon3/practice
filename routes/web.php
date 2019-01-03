@@ -16,7 +16,13 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/faqs', function(){
-    return view('faqs');
+    $sections = new App\Section;
+    $sections = $sections::all();
+
+    $faqs = new App\Faq;
+    $faqs = $faqs::all();
+
+    return view('faqs', compact('sections', 'faqs'));
 })->name('faqs');
 
 
