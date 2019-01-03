@@ -41,6 +41,11 @@ class SectionController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'nombre' => 'required',
+            'icon_id' => 'required'
+        ]);
+
         Section::create($request->all());
         return redirect()->route('sections.index');
     }
@@ -79,6 +84,11 @@ class SectionController extends Controller
     public function update(Request $request, Section $section)
     {
         //
+        $this->validate($request, [
+            'nombre' => 'required',
+            'icon_id' => 'required'
+        ]);
+        
         $section = Section::findOrFail($section->id);
         $section->update($request->all());
 

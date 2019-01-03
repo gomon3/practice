@@ -34,6 +34,9 @@
                         </select>
                     </div>
 
+                    {!! $errors->first('nombre', '<div class="alert alert-danger" role="alert">:message</div>') !!}
+                    {!! $errors->first('icon_id', '<div class="alert alert-danger" role="alert">:message</div>') !!}
+
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>
