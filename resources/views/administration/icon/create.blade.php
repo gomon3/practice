@@ -30,6 +30,8 @@
                       <small id="helpId" class="form-text text-muted">Código de Ícono</small>
                     </div>
 
+                    {!! $errors->first('data', '<div class="alert alert-danger" role="alert">:message</div>') !!}
+
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>

@@ -39,6 +39,10 @@ class IconController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'data' => 'required'
+        ]);
+
         Icon::create($request->all());
         return redirect()->route('icons.index');
     }
@@ -76,6 +80,10 @@ class IconController extends Controller
     public function update(Request $request, Icon $icon)
     {
         //
+        $this->validate($request, [
+            'data' => 'required'
+        ]);
+        
         $icon = Icon::findOrFail($icon->id);
         $icon->update($request->all());
 
