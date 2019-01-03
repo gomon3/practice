@@ -30,9 +30,14 @@
                     @if ($sections->count() > 0)
                         <div class="form-group">
                             <label for="section_id">Sección perteneciente</label>
-                            <select class="custom-select" name="section_id" id="section_id">
+                            <select class="custom-select" name="section_id" id="section_id"
+                            value="{{ $faq->section_id }}">
                                 @foreach ($sections as $section)
-                                    <option value="{{$section->id}}">{{ $section->nombre }}</option>
+                                    @if ($section->id == $faq->section_id)
+                                        <option value="{{$section->id}}" selected>{{ $section->nombre }}</option>
+                                    @else
+                                        <option value="{{$section->id}}">{{ $section->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -41,9 +46,14 @@
                     @if ($solutions->count() > 0)
                         <div class="form-group">
                             <label for="solution_id">Solución a la pregunta</label>
-                            <select class="custom-select" name="solution_id" id="solution_id">
+                            <select class="custom-select" name="solution_id" id="solution_id"
+                            value="{{ $faq->solution_id }}">
                                 @foreach ($solutions as $solution)
-                                    <option value="{{$solution->id}}">{{ $solution->information }}</option>
+                                    @if ($solution->id == $faq->solution_id)
+                                        <option value="{{$solution->id}}" selected>{{ $solution->information }}</option>
+                                    @else
+                                        <option value="{{$solution->id}}">{{ $solution->information }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

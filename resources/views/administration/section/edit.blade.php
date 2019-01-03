@@ -28,9 +28,14 @@
 
                     <div class="form-group">
                         <label for="icon_id">Icono para la sección</label>
-                        <select class="custom-select" name="icon_id" id="icon_id">
+                        <select class="custom-select" name="icon_id" id="icon_id"
+                        value="{{ $section->icon_id }}">
                             @foreach ($icons as $icon)
-                                <option value="{{$icon->id}}">{{ $icon->data }}</option>
+                                @if ($icon->id == $section->icon_id)
+                                    <option value="{{$icon->id}}" selected>{{ $icon->data }}</option>
+                                @else
+                                    <option value="{{$icon->id}}">{{ $icon->data }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
