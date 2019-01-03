@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Faq;
 use App\Section;
+use App\Solution;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -29,7 +30,8 @@ class FaqController extends Controller
     {
         //
         $sections = Section::all();
-        return view('administration.faq.create', compact('sections'));
+        $solutions = Solution::all();
+        return view('administration.faq.create', compact('sections', 'solutions'));
     }
 
     /**
@@ -67,7 +69,8 @@ class FaqController extends Controller
     {
         //
         $sections = Section::all();
-        return view('administration.faq.edit', compact('faq'), compact('sections'));
+        $solutions = Solution::all();
+        return view('administration.faq.edit', compact('faq', 'sections', 'solutions'));
     }
 
     /**

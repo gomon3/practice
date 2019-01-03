@@ -19,6 +19,7 @@
                             <th>ID</th>
                             <th>Pregunta Frecuente</th>
                             <th>Sección</th>
+                            <th>Solución</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -28,6 +29,7 @@
                                 <td>{{ $faq->id }}</td>
                                 <td>{{ $faq->faq }}</td>
                                 <td>{{ $faq->section->nombre }}</td>
+                                <td>{{ $faq->solution->information }}</td>
                                 <td>
                                     <a class="btn btn-primary" href="{{ route('faqs.edit', $faq->id) }}" role="button">Editar</a>
                                     <form style="display:inline;" method="POST" action="{{ route('faqs.destroy', $faq) }}">

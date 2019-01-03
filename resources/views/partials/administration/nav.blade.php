@@ -9,9 +9,9 @@
     <a href="{{route('sections.index')}}" class="nav-link {{ setActive('sections.index') }}">Secciones</a>
   </li>
   <li class="nav-item">
-    <a href="{{route('faqs.index')}}" class="nav-link {{ setActive('faqs.index') }}">Faqs</a>
-  </li>
+      <a href="{{route('solutions.index')}}" class="nav-link {{ setActive('solutions.index') }}">Soluciones</a>
+    </li>
   <li class="nav-item">
-    <a href="{{route('solutions.index')}}" class="nav-link {{ setActive('solutions.index') }}">Soluciones</a>
+    <a href="{{route('faqs.index')}}" class="nav-link {{ setActive('faqs.index') }}">Faqs</a>
   </li>
 </ul>

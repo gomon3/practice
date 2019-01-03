@@ -25,16 +25,30 @@
                         <small id="helpId" class="form-text text-muted">Pregunta frecuente</small>
                     </div>
 
+                    @if ($sections)
+                        <div class="form-group">
+                            <label for="section_id">Sección perteneciente</label>
+                            <select class="custom-select" name="section_id" id="section_id">
+                                @foreach ($sections as $section)
+                                    <option value="{{$section->id}}">{{ $section->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
+                    
+                    @if ($solutions)
+                        <div class="form-group">
+                            <label for="solution_id">Solución a la pregunta</label>
+                            <select class="custom-select" name="solution_id" id="solution_id">
+                                @foreach ($solutions as $solution)
+                                    <option value="{{$solution->id}}">{{ $solution->information }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
                     
 
-                    <div class="form-group">
-                        <label for="section_id">Sección perteneciente</label>
-                        <select class="custom-select" name="section_id" id="section_id">
-                            @foreach ($sections as $section)
-                                <option value="{{$section->id}}">{{ $section->nombre }}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    
 
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>

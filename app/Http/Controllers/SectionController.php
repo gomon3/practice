@@ -66,7 +66,7 @@ class SectionController extends Controller
     {
         //
         $icons = Icon::all();
-        return view('administration.section.edit', compact('section'), compact('icons'));
+        return view('administration.section.edit', compact('section', 'icons'));
     }
 
     /**

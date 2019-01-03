@@ -14,6 +14,7 @@
                 <h1>Editar Sección</h1>
 
                 <form action="{{route('sections.update', $section)}}" method="post">
+                    @method('PUT')
                     @csrf
 
                     <div class="form-group">
