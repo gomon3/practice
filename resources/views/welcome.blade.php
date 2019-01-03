@@ -73,7 +73,7 @@
                 <div class="links">
                     <a href="{{ route('home.faqs.show') }}">Visualizar las preguntas frecuentes</a>
                     <a href="{{ route('login.show') }}">Administrar los datos</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/gomon3/practice/tree/master">GitHub</a>
                 </div>
             </div>
         </div>
