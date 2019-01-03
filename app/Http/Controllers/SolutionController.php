@@ -15,7 +15,8 @@ class SolutionController extends Controller
     public function index()
     {
         //
-        return view('administration.solution.index');
+        $solutions = Solution::all();
+        return view('administration.solution.index', compact('solutions'));
     }
 
     /**
@@ -26,6 +27,7 @@ class SolutionController extends Controller
     public function create()
     {
         //
+        return view('administration.solution.create');
     }
 
     /**
@@ -37,6 +39,8 @@ class SolutionController extends Controller
     public function store(Request $request)
     {
         //
+        Solution::create($request->all());
+        return redirect()->route('solutions.index');
     }
 
     /**
@@ -59,6 +63,7 @@ class SolutionController extends Controller
     public function edit(Solution $solution)
     {
         //
+        return view('administration.solution.edit', compact('solution'));
     }
 
     /**
@@ -71,6 +76,11 @@ class SolutionController extends Controller
     public function update(Request $request, Solution $solution)
     {
         //
+        $solution = Solution::findOrFail($solution->id);
+        $solution->update($request->all());
+
+        //Redireccionamos
+        return redirect()->route('solutions.index');
     }
 
     /**
@@ -82,5 +92,8 @@ class SolutionController extends Controller
     public function destroy(Solution $solution)
     {
         //
+        Solution::findOrFail($solution->id)->delete();
+
+        return redirect()->route('solutions.index');
     }
 }
