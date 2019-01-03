@@ -25,6 +25,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/faqs', function(){
+    return "Faqs";
+})->name('home.faqs.show');
+
+
 Route::resource('admin/sections', 'SectionController')->except('show');
 Route::resource('admin/icons', 'IconController')->except('show');
 Route::resource('admin/faqs', 'FaqController')->except('show');
