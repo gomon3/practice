@@ -33,7 +33,7 @@
                           
                               <div id="collapseOne{{$loop->iteration}}" class="collapse" aria-labelledby="headingOne{{$loop->iteration}}" data-parent="#accordion">
                                   <div class="card-body">
-                                      {{ $faq->solution->information }}
+                                      {!! $faq->solution->information !!}
                                   </div>
                               </div>
                           </div>
