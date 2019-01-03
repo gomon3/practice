@@ -39,6 +39,10 @@ class SolutionController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'information' => 'required'
+        ]);
+
         Solution::create($request->all());
         return redirect()->route('solutions.index');
     }
@@ -76,6 +80,10 @@ class SolutionController extends Controller
     public function update(Request $request, Solution $solution)
     {
         //
+        $this->validate($request, [
+            'information' => 'required'
+        ]);
+        
         $solution = Solution::findOrFail($solution->id);
         $solution->update($request->all());
 

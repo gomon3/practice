@@ -22,6 +22,8 @@
                       <textarea class="form-control" name="information" id="information" rows="5"></textarea>
                     </div>
 
+                    {!! $errors->first('information', '<div class="alert alert-danger" role="alert">:message</div>') !!}
+
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>
