@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*Route::get('/', function () {
+    return view('faq.index');
+});*/
+
+Route::resource('sections', 'SectionController');

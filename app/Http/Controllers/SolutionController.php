@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Section;
+use App\Solution;
 use Illuminate\Http\Request;
 
-class SectionController extends Controller
+class SolutionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,6 @@ class SectionController extends Controller
     public function index()
     {
         //
-        return view('faq.index');
     }
 
     /**
@@ -42,10 +41,10 @@ class SectionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Section  $section
+     * @param  \App\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function show(Section $section)
+    public function show(Solution $solution)
     {
         //
     }
@@ -53,10 +52,10 @@ class SectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Section  $section
+     * @param  \App\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function edit(Section $section)
+    public function edit(Solution $solution)
     {
         //
     }
@@ -65,10 +64,10 @@ class SectionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Section  $section
+     * @param  \App\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Section $section)
+    public function update(Request $request, Solution $solution)
     {
         //
     }
@@ -76,10 +75,10 @@ class SectionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Section  $section
+     * @param  \App\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Section $section)
+    public function destroy(Solution $solution)
     {
         //
     }
