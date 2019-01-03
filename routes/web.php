@@ -11,23 +11,13 @@
 |
 */
 
-Route::get('/test', function(){
-    $user = new App\User;
-
-    $user->name = 'Admin';
-    $user->email = 'admin@admin.com';
-    $user->password = bcrypt('admin');
-
-    $user->save();
-});
-
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 Route::get('/faqs', function(){
-    return "Faqs";
-})->name('home.faqs.show');
+    return view('faqs');
+})->name('faqs');
 
 
 Route::resource('admin/sections', 'SectionController')->except('show');
