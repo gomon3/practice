@@ -15,7 +15,7 @@ class SectionController extends Controller
     public function index()
     {
         //
-        return view('administration.section');
+        return view('administration.section.index');
     }
 
     /**

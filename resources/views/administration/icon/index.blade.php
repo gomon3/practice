@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('tittle', 'Módulo de administración')
+@section('tittle', 'Módulo de administraciódfdfdfn')
 
 @section('content')
 
@@ -11,38 +11,50 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-1-12">
-                <h1>íconos</h1>
+                <h1>Iconos</h1>
                 
                 <table class="table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Códgio</th>
+                            <th>Código</th>
                             <th>Visualización</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="row">asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                        </tr>
-                        <tr>
-                            <td scope="row">asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                        </tr>
+                        @foreach ($icons as $icon)
+                            <tr>
+                                <td>
+                                    {{ $icon->id }}
+                                </td>
+                                <td>
+                                    {{ $icon->data }}
+                                </td>
+                                <td class="text-center">
+                                    <img style="width:24px;height:24px;" src="/glyph-iconset-master/svg/{{ $icon->data }}.svg"/>
+                                </td>
+                                <td>
+                                    <a class="btn btn-primary" href="{{ route('icons.edit', $icon->id) }}" role="button">Editar</a>
+                                    <form style="display:inline;" method="POST" action="{{ route('icons.destroy', $icon) }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
+            
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
-                <br>
-                <br>
-
-
                 <p>
+                    Para poder agregar más íconos a la base de datos, debes de agregar el código del ícono.
+                </p>
+                <a class="btn btn-primary" href="{{route('icons.create')}}" role="button">Agregar Nuevo Icono</a>
+
+
+                <!--<p>
                     Para poder agregar más íconos a la base de datos, debes de agregar el código del ícono.
                 </p>
                 <p>
@@ -61,7 +73,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
+                </form>-->
             </div>
             
         </div>

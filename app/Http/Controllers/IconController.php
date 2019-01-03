@@ -15,7 +15,8 @@ class IconController extends Controller
     public function index()
     {
         //
-        return view('administration.icon');
+        $icons = Icon::all();
+        return view('administration.icon.index', compact('icons'));
     }
 
     /**
@@ -26,6 +27,7 @@ class IconController extends Controller
     public function create()
     {
         //
+        return view('administration.icon.create');
     }
 
     /**
@@ -37,6 +39,8 @@ class IconController extends Controller
     public function store(Request $request)
     {
         //
+        Icon::create($request->all());
+        return redirect()->route('icons.index');
     }
 
     /**
@@ -59,6 +63,7 @@ class IconController extends Controller
     public function edit(Icon $icon)
     {
         //
+        return view('administration.icon.edit', compact('icon'));
     }
 
     /**
@@ -71,6 +76,11 @@ class IconController extends Controller
     public function update(Request $request, Icon $icon)
     {
         //
+        $icon = Icon::findOrFail($icon->id);
+        $icon->update($request->all());
+
+        //Redireccionamos
+        return redirect()->route('icons.index');
     }
 
     /**
@@ -82,5 +92,8 @@ class IconController extends Controller
     public function destroy(Icon $icon)
     {
         //
+        Icon::findOrFail($icon->id)->delete();
+
+        return redirect()->route('icons.index');
     }
 }
