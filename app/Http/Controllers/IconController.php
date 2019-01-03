@@ -53,16 +53,6 @@ class IconController extends Controller
         return redirect()->route('icons.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Icon  $icon
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Icon $icon)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

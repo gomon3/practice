@@ -53,16 +53,6 @@ class SolutionController extends Controller
         return redirect()->route('solutions.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Solution  $solution
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Solution $solution)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

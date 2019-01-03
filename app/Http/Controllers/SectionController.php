@@ -56,16 +56,6 @@ class SectionController extends Controller
         return redirect()->route('sections.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Section  $section
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Section $section)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

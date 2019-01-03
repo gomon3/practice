@@ -58,16 +58,6 @@ class FaqController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Faq  $faq
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Faq $faq)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
