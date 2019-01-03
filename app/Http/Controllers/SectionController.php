@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Section;
+use App\Icon;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -15,7 +16,8 @@ class SectionController extends Controller
     public function index()
     {
         //
-        return view('administration.section.index');
+        $sections = Section::all();
+        return view('administration.section.index', compact('sections'));
     }
 
     /**
@@ -26,6 +28,8 @@ class SectionController extends Controller
     public function create()
     {
         //
+        $icons = Icon::all();
+        return view('administration.section.create', compact('icons'));
     }
 
     /**
@@ -37,6 +41,8 @@ class SectionController extends Controller
     public function store(Request $request)
     {
         //
+        Section::create($request->all());
+        return redirect()->route('sections.index');
     }
 
     /**
@@ -59,6 +65,8 @@ class SectionController extends Controller
     public function edit(Section $section)
     {
         //
+        $icons = Icon::all();
+        return view('administration.section.edit', compact('section'), compact('icons'));
     }
 
     /**
@@ -71,6 +79,11 @@ class SectionController extends Controller
     public function update(Request $request, Section $section)
     {
         //
+        $section = Section::findOrFail($section->id);
+        $section->update($request->all());
+
+        //Redireccionamos
+        return redirect()->route('sections.index');
     }
 
     /**
@@ -82,5 +95,8 @@ class SectionController extends Controller
     public function destroy(Section $section)
     {
         //
+        Section::findOrFail($section->id)->delete();
+
+        return redirect()->route('sections.index');
     }
 }

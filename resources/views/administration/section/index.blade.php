@@ -23,42 +23,34 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($sections as $section)
                         <tr>
-                            <td scope="row">asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
+                            <td>
+                                {{ $section->id }}
+                            </td>
+                            <td>
+                                {{ $section->nombre }}
+                            </td>
+                            <td class="text-center">
+                                <img style="width:24px;height:24px;" src="/glyph-iconset-master/svg/{{ $section->icon->data }}.svg"/>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="{{ route('sections.edit', $section->id) }}" role="button">Editar</a>
+                                <form style="display:inline;" method="POST" action="{{ route('sections.destroy', $section) }}">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
+        
                         </tr>
-                        <tr>
-                            <td scope="row">asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                            <td>asdf</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
-                <br>
-                <br>
+                
 
-
-                <p>
-                    Aquí puedes visualizar las secciones que tienes dadas de alta.
-                </p>
-                <p>
-                    Puedes elegir el ícono que desees, recuerda que si quieres otro ícono, deberás agregarlo en la pestaña de íconos.
-                </p>
-
-
-                <form action="" method="post">
-                    <div class="form-group">
-                      <label for="data">Código</label>
-                      <input type="text" class="form-control" name="data" id="data" aria-describedby="helpId" placeholder="Código">
-                      <small id="helpId" class="form-text text-muted">Agrega </small>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </form>
+                <a class="btn btn-primary" href="{{ route('sections.create') }}" role="button">Nueva Sección</a>
             </div>
             
         </div>
