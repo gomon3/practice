@@ -25,7 +25,9 @@
                         <small id="helpId" class="form-text text-muted">Pregunta frecuente</small>
                     </div>
 
-                    @if ($sections)
+                    {!! $errors->first('faq', '<div class="alert alert-danger" role="alert">:message</div>') !!}
+
+                    @if ($sections->count() > 0)
                         <div class="form-group">
                             <label for="section_id">Sección perteneciente</label>
                             <select class="custom-select" name="section_id" id="section_id">
@@ -36,7 +38,7 @@
                         </div>
                     @endif
                     
-                    @if ($solutions)
+                    @if ($solutions->count() > 0)
                         <div class="form-group">
                             <label for="solution_id">Solución a la pregunta</label>
                             <select class="custom-select" name="solution_id" id="solution_id">

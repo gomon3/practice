@@ -43,6 +43,10 @@ class FaqController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'faq' => 'required'
+        ]);
+
         Faq::create($request->all());
         return redirect()->route('faqs.index');
         
@@ -83,6 +87,10 @@ class FaqController extends Controller
     public function update(Request $request, Faq $faq)
     {
         //
+        $this->validate($request, [
+            'faq' => 'required'
+        ]);
+        
         $faq = Faq::findOrFail($faq->id);
         $faq->update($request->all());
 
