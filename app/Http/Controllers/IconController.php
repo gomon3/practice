@@ -15,6 +15,7 @@ class IconController extends Controller
     public function index()
     {
         //
+        return view('administration.icon');
     }
 
     /**
